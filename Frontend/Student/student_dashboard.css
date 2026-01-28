@@ -359,3 +359,32 @@ label {
 .assignment_submit_btn:active {
     transform: scale(1.01);
 }
+
+
+.student_container {
+    position: fixed;
+}
+
+.navbar_section {
+    position: fixed;
+}
+
+.logout_section {
+    position: fixed;
+}
+
+.main_content {
+    overflow-y: auto;
+}
+
+.task_due {
+    margin-top: 20px;
+}
+
+#description {
+    margin-top: 10px;
+}
+
+/* .main_content #design_card {
+    height: max-content;
+} */
