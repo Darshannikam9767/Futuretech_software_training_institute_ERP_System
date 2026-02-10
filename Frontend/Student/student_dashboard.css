@@ -201,6 +201,7 @@ hr {
     left: 0;
     position: absolute;
     bottom: 0;
+    transition: .2s;
 }
 
 .logout_section h2 {
@@ -210,7 +211,31 @@ hr {
     margin-top: 20px;
     font-size: 20px;
     cursor: pointer;
+    transition: .2s;
 }
+
+.logout_section :hover {
+    background-color: #fc040417;
+    padding: 20px 40px;
+    border-radius: 15px;
+    /* margin-left: 20px; */
+    border: 1px solid #fc040449;
+    box-shadow: 0 10px 25px var(--card_shadow);
+}
+
+.logout_section h2:hover {
+    margin-left: -10px;
+    align-items: center;
+}
+
+.logout_section h2:hover {
+    transform: scale(0.97);
+}
+
+.logout_section h2:active {
+    transform: scale(1);
+}
+
 
 #design_card {
     background-color: var(--card_bg_color);
