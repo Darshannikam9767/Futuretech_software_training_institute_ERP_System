@@ -350,6 +350,13 @@ label {
     border-radius: 15px;
     margin-bottom: 20px;
     box-shadow: 0 10px 25px var(--card_shadow);
+    cursor: pointer;
+    transition: .2s;
+}
+
+.drop_area:hover {
+    border: 2px solid var(--gray_text);
+    border-radius: 20px;
 }
 
 .drop_area p {
@@ -405,4 +412,8 @@ label {
 
 #description {
     margin-top: 10px;
+}
+
+#select_file {
+    display: none;
 }
