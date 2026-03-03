@@ -47,9 +47,9 @@
             <nav class="navbar" id="navbar">
                 <a href="${pageContext.request.contextPath}/StudentDashboard" class="deactive">Dashboard</a>
                 <a href="${pageContext.request.contextPath}/StudentMyDomain" class="deactive">My Domain</a>
-                <a href="${pageContext.request.contextPath}/Student/student_assignment.jsp" class="deactive">Assignments</a>
-                <a href="${pageContext.request.contextPath}/Student/student_fee_history.jsp" class="deactive">Fee History</a>
-                <a href="${pageContext.request.contextPath}/Student/student_profile.jsp" class="active">Profile</a>
+                <a href="${pageContext.request.contextPath}/StudentAssignment" class="deactive">Assignments</a>
+                <a href="${pageContext.request.contextPath}/StudentFeeHistory" class="deactive">Fee History</a>
+                <a href="${pageContext.request.contextPath}/StudentProfile" class="active">Profile</a>
             </nav>
         </div>
 
@@ -58,7 +58,7 @@
         </div>
     </div>
     <main class="main_content">
-        
+        <h1>Profile Section</h1>
     </main>
 
     <script>

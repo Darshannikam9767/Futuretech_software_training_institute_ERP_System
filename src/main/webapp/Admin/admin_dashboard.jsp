@@ -44,13 +44,13 @@
     <div id="navbar_and_logout_section">
         <div class="navbar_section">
             <nav class="navbar">
-                <a href="#dashboard" class="active">Dashboard</a>
-                <a href="#student_directory" class="deactive">Student Directory</a>
-                <a href="#course_management" class="deactive">Course Management</a>
-                <a href="#fee_tracker" class="deactive">Fee Tracker</a>
-                <a href="#assignment" class="deactive">Assignments</a>
-                <a href="#register" class="deactive">Register</a>
-                <a href="#settings" class="deactive">Settings</a>
+                <a href="${pageContext.request.contextPath}/AdminDashboard" class="active">Dashboard</a>
+                <a href="${pageContext.request.contextPath}/AdminStudentDirectory" class="deactive">Student Directory</a>
+                <a href="${pageContext.request.contextPath}/AdminCourseManagement" class="deactive">Course Management</a>
+                <a href="${pageContext.request.contextPath}/AdminFeeTracker" class="deactive">Fee Tracker</a>
+                <a href="${pageContext.request.contextPath}/AdminAssignments" class="deactive">Assignments</a>
+                <a href="${pageContext.request.contextPath}/AdminRegister" class="deactive">Register</a>
+                <a href="${pageContext.request.contextPath}/AdminSettings" class="deactive">Settings</a>
             </nav>
         </div>
 
