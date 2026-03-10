@@ -1,75 +1,71 @@
-const table = document.getElementById("tableBody");
+const tableBody = document.getElementById("studentTable");
 const titleInput = document.getElementById("title");
 const dateInput = document.getElementById("date");
-const fileInput = document.getElementById("file");
+const fileInput = document.getElementById("fileInput");
 
-/* Load saved data */
+// Refresh kelya var data dakhva
 window.onload = () => {
-  const data = JSON.parse(localStorage.getItem("rows")) || [];
-  data.forEach(addRow);
+    const savedData = JSON.parse(localStorage.getItem("myAssignments")) || [];
+    savedData.forEach(item => createRow(item));
 };
 
-/* Create Assignment */
-document.getElementById("createBtn").onclick = () => {
-  const title = titleInput.value;
-  const date = dateInput.value;
-  const file = fileInput.files[0];
+document.getElementById("publishBtn").onclick = () => {
+    const title = titleInput.value;
+    const date = dateInput.value;
 
-  if (!title || !date) {
-    alert("Title and Date are required!");
-    return;
-  }
+    if (!title || !date) {
+        alert("Please enter title and date!");
+        return;
+    }
 
-  // 🔥 MAIN LOGIC
-  let status = "Pending";
-  if (file) {
-    status = "Submitted";
-  }
+    // 🔥 MAIN LOGIC: Check if file exists
+    let statusText = "PENDING"; 
+    let statusClass = "pending";
 
-  const rowData = {
-    student: "Sonali",
-    assignment: title,
-    date: date,
-    status: status
-  };
+    if (fileInput.files.length > 0) {
+        statusText = "SUBMITTED";
+        statusClass = "submitted";
+    }
 
-  addRow(rowData);
-  save(rowData);
+    const newData = {
+        student: "Rahul Kumar", // Hardcoded for UI demo
+        assignment: title,
+        date: date,
+        status: statusText,
+        cssClass: statusClass
+    };
 
-  titleInput.value = "";
-  dateInput.value = "";
-  fileInput.value = "";
+    createRow(newData);
+    saveData(newData);
+
+    // Form clear kara
+    titleInput.value = "";
+    dateInput.value = "";
+    fileInput.value = "";
 };
 
-/* Add row to table */
-function addRow(d) {
-  const tr = document.createElement("tr");
+function createRow(data) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+        <td>${data.student}</td>
+        <td>${data.assignment}</td>
+        <td>${data.date}</td>
+        <td><span class="badge ${data.cssClass}">${data.status}</span></td>
+        <td><button class="action-btn">Review and grade</button></td>
+    `;
 
-  tr.innerHTML = `
-    <td>${d.student}</td>
-    <td>${d.assignment}</td>
-    <td>${d.date}</td>
-    <td><span class="status ${d.status.toLowerCase()}">${d.status}</span></td>
-    <td>
-      <button class="reviewBtn">Review</button>
-    </td>
-  `;
+    // Review Button Logic
+    tr.querySelector(".action-btn").onclick = function() {
+        const badge = tr.querySelector(".badge");
+        badge.innerText = "REVIEWED";
+        badge.className = "badge reviewed";
+    };
 
-  const btn = tr.querySelector(".reviewBtn");
-  const statusSpan = tr.querySelector(".status");
-
-  btn.onclick = () => {
-    statusSpan.innerText = "Reviewed";
-    statusSpan.className = "status reviewed";
-    btn.disabled = true;
-  };
-
-  table.appendChild(tr);
+    tableBody.appendChild(tr);
 }
 
-/* Save in localStorage */
-function save(d) {
-  const old = JSON.parse(localStorage.getItem("rows")) || [];
-  old.push(d);
-  localStorage.setItem("rows", JSON.stringify(old));
+function saveData(obj) {
+    const list = JSON.parse(localStorage.getItem("myAssignments")) || [];
+    list.push(obj);
+    localStorage.setItem("myAssignments", JSON.stringify(list));
 }
